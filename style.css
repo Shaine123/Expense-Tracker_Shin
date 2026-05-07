@@ -11,6 +11,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 2rem;
 }
 
 .container {
@@ -30,6 +31,80 @@ h1 {
 }
 
 .balance {
-  background: linear-gradient(90deg, #8fc7fb, #599ddd);
+  background: linear-gradient(90deg, #66ffa3, #3ddd7d);
   border-radius: 1rem;
+  padding: 2rem;
+}
+
+.balance h2 {
+  font-weight: 400;
+  font-size: 1.2rem;
+  margin-top: 0.5rem;
+}
+
+.balance .balance-amt {
+  font-weight: bold;
+  font-size: 3rem;
+  margin-top: 1rem;
+}
+
+.summary {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-top: 1rem;
+  gap: 1.5rem;
+}
+
+.summary .income-container,
+.expenses-container {
+  background-color: white;
+  border-radius: 10px;
+  min-height: 100px;
+}
+
+.summary .income-container {
+  color: green;
+  padding-top: 20px;
+}
+
+.summary .income-container .income-amt {
+  font-weight: 500;
+  font-size: 2rem;
+  margin-top: 0.5rem;
+}
+
+.summary .expenses-container {
+  color: rgb(197, 65, 65);
+  padding-top: 20px;
+}
+
+.summary .expenses-container .expense-amt {
+  font-weight: 500;
+  font-size: 2rem;
+  margin-top: 0.5rem;
+}
+
+.main-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.transactions,
+.form-container {
+  text-align: left;
+}
+
+.transactions h2,
+.form-container h2 {
+  font-weight: 500;
+  font-size: 1.3rem;
+  color: rgb(92, 92, 92);
+}
+
+.form-container {
+  background-color: rgb(230, 240, 255);
+  border-radius: 5px;
+  padding: 1rem;
 }
