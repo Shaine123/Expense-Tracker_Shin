@@ -6,7 +6,7 @@
 }
 
 body {
-  background-color: #65f4a8;
+  background-color: #2b9b5f;
   min-height: 100vh;
   display: flex;
   justify-content: center;
@@ -31,7 +31,7 @@ h1 {
 }
 
 .balance {
-  background: linear-gradient(90deg, #66ffa3, #3ddd7d);
+  background: linear-gradient(90deg, #48bb76, #3ddd7d);
   border-radius: 1rem;
   padding: 2rem;
 }
@@ -60,6 +60,13 @@ h1 {
   background-color: white;
   border-radius: 10px;
   min-height: 100px;
+  cursor: pointer;
+  transition: all ease-in 0.5s;
+}
+
+.summary .income-container:hover,
+.expenses-container:hover {
+  transform: translateY(-3px);
 }
 
 .summary .income-container {
@@ -96,15 +103,73 @@ h1 {
   text-align: left;
 }
 
+.transactions .transaction-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  padding: 5px 10px;
+  padding-right: 3rem;
+  border-radius: 10px;
+  height: 45px;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.03);
+  border-right: 5px solid red;
+  cursor: pointer;
+}
+
 .transactions h2,
 .form-container h2 {
   font-weight: 500;
   font-size: 1.3rem;
-  color: rgb(92, 92, 92);
+  color: #5c5c5c;
+  margin-bottom: 10px;
 }
 
 .form-container {
-  background-color: rgb(230, 240, 255);
+  background-color: rgb(241, 247, 255);
   border-radius: 5px;
-  padding: 1rem;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.108);
+}
+
+.form-container .transaction-input {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.form-container .transaction-input label {
+  color: rgb(92, 92, 92);
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.form-container .transaction-input input {
+  height: 40px;
+  border: 2px solid #1087a241;
+  border-radius: 5px;
+  padding-left: 10px;
+}
+
+.form-container .transaction-input p {
+  color: #5c5c5c;
+  font-size: 15px;
+}
+
+.form-container .addTransaction-btn {
+  background-color: #49a549;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  padding: 13px 0;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all ease-in 0.5s;
+}
+
+.form-container .addTransaction-btn:hover {
+  transform: translateY(-3px);
 }

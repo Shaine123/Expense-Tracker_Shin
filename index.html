@@ -37,6 +37,11 @@
           <h2>Transactions</h2>
           <ul>
             <!-- transaction items will be here -->
+            <!-- sample transaction  -->
+            <span class="transaction-item">
+              <p>Salary</p>
+              <p>$2,000.00</p>
+            </span>
           </ul>
         </div>
 
@@ -45,14 +50,23 @@
           <form action="">
             <div class="transaction-input">
               <label for="description">Description</label>
-              <input type="text" name="description" id="description" />
+              <input type="text" name="description" id="description" required />
             </div>
 
             <div class="transaction-input">
               <label for="amount">Amount</label>
-              <input type="number" name="description" id="description" />
+              <input
+                type="number"
+                name="description"
+                id="description"
+                required
+              />
+              <p>Use negative (-) for expenses</p>
             </div>
           </form>
+          <button type="submit" class="addTransaction-btn">
+            Add Transactions
+          </button>
         </div>
       </div>
     </div>
