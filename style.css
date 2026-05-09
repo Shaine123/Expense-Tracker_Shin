@@ -103,6 +103,26 @@ h1 {
   text-align: left;
 }
 
+.transactions ul {
+  max-height: 350px;
+  overflow-y: scroll;
+  padding-right: 10px;
+}
+
+.transactions ul::-webkit-scrollbar {
+  width: 8px;
+}
+
+.transactions ul::-webkit-scrollbar-track {
+  background-color: rgba(183, 183, 183, 0.266);
+  border-radius: 5px;
+}
+
+.transactions ul::-webkit-scrollbar-thumb {
+  background-color: #3ddd7d;
+  border-radius: 5px;
+}
+
 .transactions .transaction-item {
   display: flex;
   justify-content: space-between;
@@ -115,6 +135,7 @@ h1 {
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.03);
   border-right: 5px solid red;
   cursor: pointer;
+  margin: 10px 0;
 }
 
 .transactions h2,
@@ -172,4 +193,10 @@ h1 {
 
 .form-container .addTransaction-btn:hover {
   transform: translateY(-3px);
+}
+
+@media screen and (max-width: 768px) {
+  .main-content {
+    grid-template-columns: 1fr;
+  }
 }
