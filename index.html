@@ -17,7 +17,7 @@
 
       <div class="balance">
         <h2>Your Balance</h2>
-        <p class="balance-amt" id="balance">$1,000.00</p>
+        <p class="balance-amt" id="balance">0</p>
 
         <div class="summary">
           <div class="income-container">
@@ -38,7 +38,7 @@
           <ul>
             <!-- transaction items will be here -->
             <!-- sample transaction  -->
-            <span class="transaction-item">
+            <!-- <span class="transaction-item">
               <p>Salary</p>
               <p>$2,000.00</p>
             </span>
@@ -65,7 +65,7 @@
             <span class="transaction-item">
               <p>Salary</p>
               <p>$2,000.00</p>
-            </span>
+            </span> -->
           </ul>
         </div>
 
@@ -79,13 +79,13 @@
 
             <div class="transaction-input">
               <label for="amount">Amount</label>
-              <input type="number" name="description" id="amount" required />
+              <input type="number" name="amount" id="amount" required />
               <p>Use negative (-) for expenses</p>
             </div>
+            <button type="submit" class="addTransaction-btn">
+              Add Transactions
+            </button>
           </form>
-          <button type="submit" class="addTransaction-btn">
-            Add Transactions
-          </button>
         </div>
       </div>
     </div>
