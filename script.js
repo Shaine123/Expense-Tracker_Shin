@@ -20,16 +20,28 @@ function addTransactions(e) {
   transactions.push({
     id: Date.now(),
     description,
-    amount,
+    amount: parseInt(amount),
   });
 
   updateIncomeSummary();
+
+  console.log(transactions);
 }
 
 function updateIncomeSummary() {
   const balanceVal = transactions.reduce((acc, curr) => {
     return acc + curr.amount;
   }, 0);
+
+  const income = transactions
+    .filter((trans) => {
+      if (trans.amount > 0) {
+        return trans;
+      }
+    })
+    .reduce((acc, curr) => {
+      return acc + curr;
+    }, 0);
 
   balance.textContent = parseInt(balanceVal);
 }
