@@ -7,7 +7,9 @@ const form = document.getElementById("submit-form");
 
 form.addEventListener("submit", addTransactions);
 
-const transactions = [];
+const transactions = JSON.parse(localStorage.getItem("transactions")) || [];
+
+console.log(transactions);
 
 function addTransactions(e) {
   e.preventDefault();
@@ -22,6 +24,8 @@ function addTransactions(e) {
     description,
     amount: parseInt(amount),
   });
+
+  localStorage.setItem("transaction", transactions);
 
   updateIncomeSummary();
 }
@@ -49,7 +53,18 @@ function updateIncomeSummary() {
       return acc + curr.amount;
     }, 0);
 
-  balance.textContent = parseInt(balanceVal);
-  incomeElmt.textContent = parseInt(income);
-  expensesElmt.textContent = parseInt(expenses);
+  balance.textContent = formatAmount(balanceVal);
+  incomeElmt.textContent = formatAmount(income);
+  expensesElmt.textContent = formatAmount(expenses);
 }
+
+function formatAmount(val) {
+  const usd = new Intl.NumberFormat("en-US", {
+    style: "currency",
+    currency: "USD",
+  }).format(val);
+
+  return usd;
+}
+
+updateIncomeSummary();
