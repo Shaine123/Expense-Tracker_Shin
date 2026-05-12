@@ -1,6 +1,6 @@
 const balance = document.getElementById("balance");
-const income = document.getElementById("income");
-const expenses = document.getElementById("expenses");
+const incomeElmt = document.getElementById("income");
+const expensesElmt = document.getElementById("expenses");
 const description = document.getElementById("description");
 const amount = document.getElementById("amount");
 const form = document.getElementById("submit-form");
@@ -24,8 +24,6 @@ function addTransactions(e) {
   });
 
   updateIncomeSummary();
-
-  console.log(transactions);
 }
 
 function updateIncomeSummary() {
@@ -33,15 +31,25 @@ function updateIncomeSummary() {
     return acc + curr.amount;
   }, 0);
 
-  const income = transactions
-    .filter((trans) => {
-      if (trans.amount > 0) {
-        return trans;
+  const income = transactions.reduce((acc, curr) => {
+    if (curr.amount > 0) {
+      return acc + curr.amount;
+    } else {
+      return acc - curr.amount;
+    }
+  }, 0);
+
+  const expenses = transactions
+    .filter((transaction) => {
+      if (transaction.amount < 0) {
+        return transaction;
       }
     })
     .reduce((acc, curr) => {
-      return acc + curr;
+      return acc + curr.amount;
     }, 0);
 
   balance.textContent = parseInt(balanceVal);
+  incomeElmt.textContent = parseInt(income);
+  expensesElmt.textContent = parseInt(expenses);
 }
