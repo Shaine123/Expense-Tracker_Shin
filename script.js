@@ -59,6 +59,7 @@ function updateIncomeSummary() {
 }
 
 function updateTrasactionList() {
+  transactionCont.innerHTML = "";
   transactions.map((transaction) => {
     transactionCont.innerHTML += createTransItem(transaction);
   });
@@ -66,7 +67,7 @@ function updateTrasactionList() {
 
 function createTransItem(transaction) {
   const transactionItem = `
-    <span class="transaction-item">
+    <span class="transaction-item ${transaction.amount > 0 ? "transaction-income" : "transaction-expense"}">
       <p>${transaction.description}</p>
       <p>${formatAmount(transaction.amount)}</p>
     </span>

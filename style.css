@@ -133,9 +133,16 @@ h1 {
   border-radius: 10px;
   height: 45px;
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.03);
-  border-right: 5px solid red;
   cursor: pointer;
   margin: 10px 0;
+}
+
+.transactions .transaction-income {
+  border-right: 5px solid rgb(90, 196, 118);
+}
+
+.transactions .transaction-expense {
+  border-right: 5px solid red;
 }
 
 .transactions h2,
