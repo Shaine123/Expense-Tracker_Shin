@@ -4,12 +4,11 @@ const expensesElmt = document.getElementById("expenses");
 const description = document.getElementById("description");
 const amount = document.getElementById("amount");
 const form = document.getElementById("submit-form");
+const transactionCont = document.getElementById("transactions-container");
 
 form.addEventListener("submit", addTransactions);
 
 const transactions = JSON.parse(localStorage.getItem("transactions")) || [];
-
-console.log(transactions);
 
 function addTransactions(e) {
   e.preventDefault();
@@ -25,9 +24,10 @@ function addTransactions(e) {
     amount: parseInt(amount),
   });
 
-  localStorage.setItem("transaction", transactions);
+  localStorage.setItem("transactions", JSON.stringify(transactions));
 
   updateIncomeSummary();
+  updateTrasactionList();
 }
 
 function updateIncomeSummary() {
@@ -58,6 +58,22 @@ function updateIncomeSummary() {
   expensesElmt.textContent = formatAmount(expenses);
 }
 
+function updateTrasactionList() {
+  transactions.map((transaction) => {
+    transactionCont.innerHTML += createTransItem(transaction);
+  });
+}
+
+function createTransItem(transaction) {
+  const transactionItem = `
+    <span class="transaction-item">
+      <p>${transaction.description}</p>
+      <p>${formatAmount(transaction.amount)}</p>
+    </span>
+   `;
+  return transactionItem;
+}
+
 function formatAmount(val) {
   const usd = new Intl.NumberFormat("en-US", {
     style: "currency",
@@ -68,3 +84,4 @@ function formatAmount(val) {
 }
 
 updateIncomeSummary();
+updateTrasactionList();
