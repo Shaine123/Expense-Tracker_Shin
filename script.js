@@ -70,6 +70,9 @@ function createTransItem(transaction) {
     <span class="transaction-item ${transaction.amount > 0 ? "transaction-income" : "transaction-expense"}">
       <p>${transaction.description}</p>
       <p>${formatAmount(transaction.amount)}</p>
+      <button class="delete-transaction_btn">
+        X
+      </button>
     </span>
    `;
   return transactionItem;
