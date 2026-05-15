@@ -105,7 +105,7 @@ h1 {
 
 .transactions ul {
   max-height: 350px;
-  overflow-y: scroll;
+  overflow-y: auto;
   padding-right: 10px;
 }
 
@@ -230,6 +230,9 @@ h1 {
 
 @media screen and (max-width: 768px) {
   .main-content {
+    grid-template-columns: 1fr;
+  }
+  .summary {
     grid-template-columns: 1fr;
   }
 }

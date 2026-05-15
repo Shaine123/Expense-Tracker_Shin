@@ -70,12 +70,28 @@ function createTransItem(transaction) {
     <span class="transaction-item ${transaction.amount > 0 ? "transaction-income" : "transaction-expense"}">
       <p>${transaction.description}</p>
       <p>${formatAmount(transaction.amount)}</p>
-      <button class="delete-transaction_btn">
+      <button class="delete-transaction_btn" onClick='deleteTransaction(${transaction.id})'>
         X
       </button>
     </span>
    `;
   return transactionItem;
+}
+
+function deleteTransaction(id) {
+  console.log(id);
+  const newTransactions = transactions.filter((transaction) => {
+    if (transaction.id != id) {
+      return transaction;
+    }
+  });
+
+  transactions.splice(0, transactions.length, ...newTransactions);
+
+  localStorage.setItem("transactions", JSON.stringify(newTransactions));
+
+  updateTrasactionList();
+  updateIncomeSummary();
 }
 
 function formatAmount(val) {
