@@ -28,6 +28,8 @@ function addTransactions(e) {
 
   updateIncomeSummary();
   updateTrasactionList();
+
+  form.reset();
 }
 
 function updateIncomeSummary() {
